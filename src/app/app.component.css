@@ -1,0 +1,219 @@
+.myNavBar {
+  box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+}
+
+.myNavBar .myNavBar__col {
+  padding-left: 0;
+}
+
+.myNavBar .myNavBar__left {
+  display: flex;
+  align-items: center;
+}
+
+.myNavBar .myNavBar__left .navbar-brand {
+  flex-grow: 1;
+  text-align: center;
+  margin-right: 0;
+}
+
+.myNavBar .myNavBar__left .navbar-brand img {
+  width: 110px;
+}
+
+.myNavBar .myNavBar__left .myNavBar__categories {
+  flex-grow: 1;
+  text-align: center;
+  color: #505763;
+  font-size: 13px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.myNavBar .myNavBar__left .myNavBar__categories i {
+  color: #a1a7b3;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search {
+  flex-grow: 8;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group {
+  background-color: #f2f3f5;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .form-control {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transition: none;
+  color: #505763;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .form-control::placeholder {
+  color: #505763;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .form-control:focus {
+  background-color: #fff;
+  border-top-color: #dedfe0;
+  border-bottom-color: #dedfe0;
+  border-left-color: #dedfe0;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .form-control:focus + .input-group-append .input-group-text {
+  background-color: #fff;
+  border-top-color: #dedfe0;
+  border-bottom-color: #dedfe0;
+  border-right-color: #dedfe0;
+  color: #ec5252;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .form-control:focus + .input-group-append .input-group-text:hover {
+  color: #fff;
+  background-color: #ec5252;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .input-group-append .input-group-text {
+  background-color: transparent;
+  border-color: transparent;
+  color: #ec5252;
+}
+
+.myNavBar .myNavBar__left .myNavBar__form-search .input-group .input-group-append .input-group-text:hover {
+  color: #fff;
+  background-color: #ec5252;
+}
+
+.myNavBar .myNavBar__right .navbar-nav {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .nav-item {
+  padding: 7px 5px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .nav-item .nav-link {
+  color: #505763;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .nav-item:hover {
+  background-color: rgba(20, 23, 28, 0.05);
+}
+
+.myNavBar .myNavBar__right .navbar-nav .nav-item:hover .overlay {
+  display: block;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .nav-item .overlay {
+  display: none;
+  background-color: #fff;
+  width: 330px;
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 1;
+  border-top: 1px solid rgba(20, 23, 28, 0.05);
+  box-shadow: 0 4px 16px rgba(20, 23, 28, 0.25);
+}
+
+.myNavBar .myNavBar__right .navbar-nav .nav-item .overlay::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  display: block;
+  border-top: 1px solid rgba(20, 23, 28, 0.05);
+  border-left: 1px solid rgba(20, 23, 28, 0.05);
+  position: absolute;
+  top: -9px;
+  right: 10%;
+  transform: rotate(45deg);
+}
+
+.myNavBar .myNavBar__right .navbar-nav .myNavBar__cart {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  line-height: 20px;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .myNavBar__cart .nav-link {
+  font-size: 20px;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons {
+  display: flex;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons:hover {
+  background-color: transparent;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons .button--white {
+  margin-right: 5px;
+}
+
+.myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons .button {
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1375px) {
+  .myNavBar .myNavBar__right .navbar-nav .nav-item {
+    white-space: nowrap;
+    text-align: center;
+  }
+  .myNavBar .myNavBar__right .navbar-nav .nav-item .nav-link {
+    font-size: 12px;
+  }
+  .myNavBar .myNavBar__right .navbar-nav .nav-item .overlay {
+    white-space: normal;
+  }
+  .myNavBar .myNavBar--reset {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .myNavBar .business,
+  .myNavBar .instructor {
+    display: none;
+  }
+  .myNavBar .myNavBar__right .navbar-nav {
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .myNavBar .myNavBar__left .myNavBar__categories,
+  .myNavBar .myNavBar__left .myNavBar__form-search {
+    display: none;
+  }
+  .myNavBar .myNavBar__right {
+    width: 50%;
+    margin-left: auto;
+  }
+  .myNavBar .myNavBar__right .navbar-nav {
+    text-align: center;
+  }
+  .myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons {
+    display: none;
+  }
+}
+
+.page-container{
+  position:relative;
+  top:66px;
+  padding-left:0
+}
+/* .page-container{
+  background:#e5e5e5;
+  padding-left:200px
+} */

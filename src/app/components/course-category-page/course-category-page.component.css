@@ -1,0 +1,67 @@
+.main-content {
+    padding-top: 50px;
+    min-height: 100vh
+}
+
+.main-content h1 {
+    margin-bottom: 50px;
+}
+
+.main-content.page-m {
+    padding: 3% 30% 20% 5%!important
+}
+
+.section-content {
+    position: relative;
+    margin: 0 auto;
+    z-index: 1
+}
+
+.section-content-p30 {
+    padding: 0 30px
+}
+
+select {
+    color: #828482
+}
+
+.example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.example-item-detail {
+    height: 18px;
+    margin-bottom: 10px;
+}
+
+.example-alternate {
+    background: rgba(127, 127, 127, 0.3);
+}
+
+.scrolling-text {
+    width: 500px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.course-payment-view {
+    margin: 20px 10px 10px 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.col-md-4 img {
+    margin-bottom: 30px;
+}
+
+.example-item-detail .course,
+.example-item-detail .instructor {
+    cursor: pointer;
+    color: blue;
+}
+
+.example-item-detail .course:hover,
+.example-item-detail .instructor:hover {
+    text-decoration: underline;
+}

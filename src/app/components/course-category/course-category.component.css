@@ -1,0 +1,25 @@
+.categories {
+    margin-top: 32px;
+}
+
+.categories .categories__content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.categories .categories__content h2 {
+    font-size: 24px;
+}
+
+.categories__items {
+    padding: 15px;
+    font: 18px;
+    border: 1px solid rgba(20, 23, 28, 0.1);
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 385px;
+}
+
+.categories .categories__content .row .categories__items:hover {
+    box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+}

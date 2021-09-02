@@ -1,0 +1,154 @@
+/* /* /* 
+ * ----------------------------
+ * Payment Body
+ * ---------------------------- 
+*/
+
+.main-content {
+    padding-top: 116px;
+    min-height: 100vh
+}
+
+.main-content.page-m {
+    padding: 3% 30% 20% 5%!important
+}
+
+
+/* 
+ * ----------------------------
+ * COURSE CHECKOUT
+ * ----------------------------
+ */
+
+section {
+    position: relative
+}
+
+.section-content {
+    position: relative;
+    margin: 0 auto;
+    z-index: 1
+}
+
+.section-content-p30 {
+    padding: 0 30px
+}
+
+.au-input-xl {
+    min-width: 935px
+}
+
+input.au-input.au-input-xl {
+    border-radius: 40px!important;
+    margin-right: 15px
+}
+
+.au-input {
+    line-height: 43px;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    color: #666;
+    padding: 0 17px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease
+}
+
+.form-area {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 50px 20px;
+    border: 3px solid #ccc
+}
+
+.form-area h3 {
+    position: absolute;
+    top: -26px;
+    left: 13px;
+    background: #ffff;
+    padding: 10px 20px;
+    font-weight: 500;
+    z-index: 23;
+    display: inline-block
+}
+
+.input-space {
+    margin-bottom: 20px
+}
+
+.input-space label {
+    padding-left: 31px;
+    font-size: 14px;
+    margin-bottom: 50px
+}
+
+.input-space input[type=text] {
+    width: 100%;
+    height: 40px;
+    border-radius: 30px;
+    outline: 0;
+    padding: 10px;
+    border: 1px solid #ccc
+}
+
+.input-space select {
+    width: 100%;
+    height: 40px;
+    border-radius: 30px;
+    outline: 0;
+    padding: 0 10px;
+    border: 1px solid #ccc
+}
+
+.au-checkbox:hover input~.au-checkmark {
+    background-color: transparent
+}
+
+label.date {
+    padding-top: 8px
+}
+
+option:first {
+    color: #ccc
+}
+
+select {
+    color: #828482
+}
+
+.example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.example-item-detail {
+    height: 18px;
+}
+
+.example-alternate {
+    background: rgba(127, 127, 127, 0.3);
+}
+
+.scrolling-text {
+    width: 500px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.course-payment-view {
+    margin: 20px 10px 10px 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.checkbox {
+    margin-bottom: 30px;
+}
+
+.col-md-4 img {
+    margin-bottom: 30px;
+}

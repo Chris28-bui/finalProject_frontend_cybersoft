@@ -1,0 +1,391 @@
+<div>
+    <div class="section-content section-content-p30 row container-fluid">
+        <div class="col-md-7">
+
+            <form [formGroup]="paymentFormGroup!" (ngSubmit)="onSubmit()">
+
+                <!-- Customer Information Form Group -->
+                <div formGroupName="customer" class="form-area">
+                    <h3>Customer</h3>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>First Name</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input #customerFirstName formControlName="firstName" type="text" (change)="getPaymentMethod()">
+
+                                <div *ngIf="firstName!.invalid && (firstName!.dirty || firstName!.touched) " class="text text-danger mt-1">
+                                    <div *ngIf="firstName!.errors!.required || firstName!.errors!.notOnlyWhitespace">
+                                        * First name is required
+                                    </div>
+                                    <div *ngIf="firstName!.errors!.minlength">
+                                        * First name must be at least two characters long
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Last Name</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="lastName" type="text" (change)="getPaymentMethod()">
+
+                                <div *ngIf="lastName!.invalid && (lastName!.dirty || lastName!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="lastName!.errors!.required || lastName!.errors!.notOnlyWhitespace">
+                                        * Last name is required
+                                    </div>
+                                    <div *ngIf="lastName!.errors!.minlength">
+                                        * Last name must be at least 2 characters long
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Email</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="email" type="text">
+
+                                <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="email!.errors!.required">
+                                        * Email is required
+                                    </div>
+                                    <div *ngIf="email!.errors!.pattern">
+                                        * Email should be in correct form
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Payment Infor Form Group -->
+                <div formGroupName="creditcard" class="form-area">
+                    <h3>Credit Card</h3>
+
+                    <div class="row">
+                        <div class="col-md-3 mt-2"><label>Card Number</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="listPayment.length == 0">
+                                <input formControlName="cardNumber" type="text" ngModel="">
+
+                                <div *ngIf="cardNumber!.invalid && (cardNumber!.dirty || cardNumber!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="cardNumber!.errors!.required || cardNumber!.errors!.notOnlyWhitespace">
+                                        * Card number is required
+                                    </div>
+                                    <div *ngIf="cardNumber!.errors!.pattern">
+                                        * Card number must be 16 numbers long
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div *ngIf="listPayment.length > 0" class="input-space">
+                                <select formControlName="cardNumber" #cardNumber (change)="getPaymentInfo(cardNumber.value)">
+                                    <option *ngFor="let tempPayment of listPayment" [value]="tempPayment.cardNumber">
+                                        {{ tempPayment.cardNumber }}
+                                    </option>
+                                    <option>Add a new payment method</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Card Type</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <select formControlName="cardType">
+                                    <option>Visa</option>
+                                    <option>Mastercard</option>
+                                </select>
+
+                                <div *ngIf="cardType!.invalid && (cardType!.dirty || cardType!.untouched)" class="text text-danger mt-1">
+                                    * Credit card type is required
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <select formControlName="cardType">
+                                    <option>{{ choosedPayment.cardType }}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Name On Card</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="nameOnCard" type="text" ngModel="">
+
+                                <div *ngIf="nameOnCard!.invalid && (nameOnCard!.dirty || nameOnCard!.touched)" class="text text-danger mt-1">
+                                    * Payee name is required
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="nameOnCard" type="text" ngModel="{{ choosedPayment!.cardHolder }}">
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Security Code</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="securityCode" type="text" ngModel="">
+
+                                <div *ngIf="securityCode!.invalid && (securityCode!.dirty || securityCode!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="securityCode!.errors!.required || securityCode!.errors!.notOnlyWhitespace">
+                                        * Credit card security code is required
+                                    </div>
+                                    <div *ngIf="securityCode!.errors!.pattern">
+                                        * Security code should be at least 3 numbers long
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="securityCode" type="text" ngModel="{{ choosedPayment!.cvv }}">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Expiration Month</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <select formControlName="expirationMonth">
+                                    <option *ngFor="let month of creditCardMonth" selected="{{ isSelected }}">
+                                        {{ month }}
+                                    </option>
+
+                                    <div *ngIf="expirationMonth!.untouched" class="text text-danger mt-1">
+                                        * Expiration Month of credit card is required
+                                        
+                                    </div>
+
+                                </select>
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <select formControlName="expirationMonth">
+                                    <option>{{ expiredMonth }}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Expiration Year</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <select formControlName="expirationYear" (change)="handleMonthsAndYears()">
+                                    <option *ngFor="let year of creditCardYear">
+                                        {{ year }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="expirationYear!.untouched" class="text text-danger mt-1">
+                                    * Expiration Year of credit card is required
+                                </div>
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <select formControlName="expirationMonth">
+                                    <option>{{ expiredYear }}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Billing Address Form Group -->
+                <div formGroupName="billingAddress" class="form-area">
+                    <h3>Billing Address</h3>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Street</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="street" type="text" ngModel="">
+
+                                <div *ngIf="street!.invalid && (street!.dirty || street!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="street!.errors!.required || street!.errors!.notOnlyWhitespace">
+                                        * Street is required
+                                    </div>
+                                    <div *ngIf="street!.errors!.minlength">
+                                        * Street must be at least 10 characters long
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="street" type="text" ngModel="{{ address.street }}">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label> City</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="city" type="text" ngModel="">
+
+                                <div *ngIf="city!.invalid && (city!.dirty || city!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="city!.errors!.required || city!.errors!.notOnlyWhitespace">
+                                        * City is required
+                                    </div>
+                                    <div *ngIf="city!.errors!.minlength">
+                                        * City must be at least 2 characters long
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="city" type="text" ngModel="{{ address.city }}">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Province/State</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="province" type="text" ngModel="">
+
+                                <div *ngIf="province!.invalid && (province!.dirty || province!.touched) " class="text text-danger mt-1">
+                                    <div *ngIf="province!.errors!.required || province!.errors!.notOnlyWhitespace">
+                                        * Province is required
+                                    </div>
+                                    <div *ngIf="province!.errors!.minlength">
+                                        * Province must be at least 2 characters long
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="province" type="text" ngModel="{{ address.state }}">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Country</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="country" type="text" ngModel="">
+
+                                <div *ngIf="country!.invalid && (country!.dirty || country!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="country!.errors!.required || country!.errors!.notOnlyWhitespace">
+                                        * Country is required
+                                    </div>
+                                    <div *ngIf="country!.errors!.minlength">
+                                        * Invalid country name
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="country" type="text" ngModel="{{ address.country }}">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"><label>Zip Code</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space" *ngIf="choosedPayment == null">
+                                <input formControlName="zipcode" type="text" ngModel="">
+
+                                <div *ngIf="zipcode!.invalid && (zipcode!.dirty || zipcode!.touched)" class="text text-danger mt-1">
+                                    <div *ngIf="zipcode!.errors!.required ">
+                                        * Zip code is required
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="input-space" *ngIf="choosedPayment != null">
+                                <input formControlName="zipcode" type="text" ngModel="{{ address.zipCode }}">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="checkbox" formGroupName="checkboxToSave">
+                    <p><input type="checkbox" formControlName="checkToSave" style="margin-right: 15px;">Do you wish to save this payment methods?</p>
+                </div>
+
+                <!-- Make Payment Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Purchase</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="col-md-5">
+            <cdk-virtual-scroll-viewport autosize style="width: 520px; height: 1100px; border: 3px solid #ccc" class="example-viewport" ref='scrollView'>
+                <div *cdkVirtualFor="let course of courses " class="row course-payment-view">
+
+                    <div class="container col-md-8">
+                        <p class="example-item-detail">Name: {{ course.courseName }}</p>
+                        <p class="example-item-detail">Instructor: {{ course.courseInstructor.username }}</p>
+                        <p class="example-item-detail">Price: {{ course.price }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../../../assets/img/kh1.jpg" alt="avatar">
+                    </div>
+
+                </div>
+            </cdk-virtual-scroll-viewport>
+
+            <div>
+                <h3 class="scrolling-text">Total Quantity: {{ totalQuantity }} course(s)</h3>
+                <h3 class="scrolling-text">Total Price: {{ totalPrice | currency: 'USD' }}</h3>
+            </div>
+
+        </div>
+    </div>
+</div>

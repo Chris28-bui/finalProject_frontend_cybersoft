@@ -1,0 +1,22 @@
+<div class="section-content section-content-p30">
+    <div class="course-category">
+        <div class="main-content container-fluid">
+            <h1>Course Category: {{ courseCategory }}</h1>
+            <cdk-virtual-scroll-viewport autosize style="width: 1000px; height: 1100px; border: 3px solid #ccc" class="example-viewport" ref='scrollView'>
+                <div *cdkVirtualFor="let course of courses" class="row course-payment-view">
+
+                    <div class="container col-md-8">
+                        <p class="example-item-detail">Name: <a class="course" (click)="goToCourseDetail(course.courseName, course.courseInstructor.username)">{{ course.courseName }}</a></p>
+                        <p class="example-item-detail">Instructor: <a class="instructor">{{ course.courseInstructor.username }}</a></p>
+                        <p class="example-item-detail">Description: {{ course.courseDescription }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../../../assets/img/kh1.jpg" alt="avatar ">
+                    </div>
+
+                </div>
+            </cdk-virtual-scroll-viewport>
+
+        </div>
+    </div>
+</div>

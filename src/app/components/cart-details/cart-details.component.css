@@ -1,0 +1,70 @@
+.cartDetails{
+    background-color: black;
+}
+
+.cartDetails h1{
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.p-3{
+    padding: 0 3%;
+}
+        
+.courses{
+    margin-left: 1%;
+}
+
+.courses h5{
+    margin-top: 20px;
+}
+
+.courseName{
+    font-weight: bold;
+}
+
+.price{
+    color: red;
+}
+
+.courses a{
+    color: red;
+    text-decoration: none;
+}
+
+.courses a:hover{
+    color:#ec5252;
+}
+
+h5{
+    margin-top: 20px;
+    color: #ec5252;
+    margin-left: 2%;
+}
+
+.courseBorder{
+    border: 1px solid lightgray;
+    /* margin-top: 30px; */
+    padding: 10px 5px;
+    cursor: pointer;
+}
+.totalPrice{
+    font-size: 40px;
+}
+
+.checkoutButton{
+    background-color: #ec5252;
+    color: white;
+    width: 75%;
+    padding: 4% 0;
+    font-weight: bold;
+}
+
+.checkoutButton:focus{
+    box-shadow: none;
+}
+
+.function:hover{
+    color: #ec5252;
+}

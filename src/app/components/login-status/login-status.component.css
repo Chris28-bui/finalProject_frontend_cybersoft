@@ -1,0 +1,61 @@
+.button--white {
+    color: #686f7a;
+    background-color: #fff;
+    border: 1px solid #505763;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 12px;
+    cursor: pointer;
+    margin-right: 3%;
+  }
+  
+  .button--white:hover {
+    color: #29303b;
+    background-color: transparent;
+    border: 1px solid #29303b;
+  }
+  
+  .button--red {
+    color: #fff;
+    background-color: #ec5252;
+    border: 1px solid #ec5252;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 12px;
+    cursor: pointer;
+  }
+  
+  .button--red:hover {
+    color: #fff;
+    background-color: #521822;
+    border: 1px solid #521822;
+  }
+
+  /* .myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons {
+    display: flex;
+  } */
+
+  .myNavBar{
+    display: inline-block;
+  }
+  
+  .myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons:hover {
+    background-color: none;
+  }
+  
+  .myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons .button--white {
+    margin-right: 5px;
+  }
+  
+  .myNavBar .myNavBar__right .navbar-nav .myNavBar__buttons .button {
+    white-space: nowrap;
+  }
+
+  .student__name{
+    color: black;
+    font-size: 15px;
+  }
+
+  .student__name:hover{
+    color: #ec5252;
+  }

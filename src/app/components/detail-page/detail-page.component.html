@@ -1,0 +1,226 @@
+<div class="section-content section-content-p30">
+
+    <!-- COURSE INTRODUCTION -->
+    <div class="course-introduction">
+
+        <!-- COURSE INTRODUCTION -->
+
+        <div class="container-fluid row">
+            <div class="col-md-8">
+                <h2>{{ courseDetail.courseName }}</h2>
+                <p>{{ courseDetail.courseDescription }}</p>
+                <div class="course-rating">
+                    <ul style="padding-left: 0;">
+                        <li class="yellow-text">{{ courseDetail.rating }}</li>
+                        <li class="yellow-text">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </li>
+                        <li><a class="link-text">(200,000 ratings)</a></li>
+                        <li>300,000 students</li>
+                    </ul>
+
+                </div>
+                <p>Created by: <a class="link-text">{{ courseDetail.courseInstructor.username }}</a></p>
+                <p><label class="font-awesome-icon"><i class="fas fa-exclamation-circle"></i></label>Created at: <label class="date">{{ courseDetail.createdAt }} </label> - Last updated: <label class="date">{{ courseDetail.updatedAt }}</label> </p>
+                <div class="course-button">
+                    <button>Wishlist<label class="font-awesome-icon-2"><i class="far fa-heart"></i></label></button>
+                    <button>Share<label class="font-awesome-icon-2"><i class="fas fa-share"></i></label></button>
+                    <button style="width: 180px;">Gift this course<label class="font-awesome-icon-2"><i class="fas fa-gift"></i></label></button>
+                </div>
+            </div>
+
+            <div class="col-md-4 course-img ">
+                <div class="course-img-img">
+                    <img src="../../../assets/img/kh1.jpg" alt="course-avatar">
+                </div>
+                <div class="course-img-info box">
+                    <h1>{{ courseDetail.price | currency: 'CAD' }}</h1>
+                    <h5>Subtotal: {{ courseDetail.price | currency: 'CAD' }}</h5>
+                    <h5>Tax: {{ tax | currency: 'CAD' }}</h5>
+                    <h5>Total: {{ priceTotal | currency: 'CAD' }}</h5>
+                    <p class="divider"></p>
+                    <button class="course-img-info-button-1" (click)="addToCart()">Add to cart</button>
+                    <button class="course-img-info-button-2" routerLink="/payment">Buy now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- COURSE CONTENT -->
+    <div class="container-fluid row">
+        <div class="col-md-7 course-content">
+            <h2>Course Content</h2>
+
+            <p><label class="course-content-p-label">-</label>Welcome to the course</p>
+            <p><label class="course-content-p-label">-</label>Java Introduction</p>
+            <p><label class="course-content-p-label">-</label>Java OOP</p>
+            <p><label class="course-content-p-label">-</label>Java Spring Boot</p>
+            <p><label class="course-content-p-label">-</label>Java EE</p>
+        </div>
+
+    </div>
+
+    <!-- COURSE INSTRUCTOR -->
+    <div class="container-fluid">
+        <div class="col-md-7 course-instructor">
+            <h2>Instructor</h2>
+
+            <a href="#">
+                <div class="link-text">{{ courseDetail.courseInstructor.username }}</div>
+            </a>
+            <p>Java Developer</p>
+
+            <div class="instructor-profile">
+                <a><img src="../../../assets/img/s2.jpg" alt="instructor-avatar"></a>
+
+                <ul>
+                    <li><label class="font-awesome-icon"><i class="fas fa-star"></i></label>4.5 Instructor rating</li>
+                    <li><label class="font-awesome-icon"><i class="fas fa-comments"></i></label>500,000 Reviews</li>
+                    <li><label class="font-awesome-icon"><i class="fas fa-user-graduate"></i></label>1,000,000 Students</li>
+                    <li><label class="font-awesome-icon"><i class="fas fa-play-circle"></i></label>45 Courses</li>
+                </ul>
+            </div>
+            <div class="instructor-history" [ngClass]="{'limitTextHeight': isReadMore}">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus numquam nulla sed, neque minima necessitatibus reiciendis, assumenda rem expedita esse error, vero amet. Vel, aliquam repudiandae! Quam tempora, suscipit mollitia sit fugiat
+                    recusandae iusto a modi nisi accusamus et ab nemo consectetur, tenetur blanditiis?</p><br>
+                <p>Consequuntur, assumenda incidunt nulla officia eveniet nihil ullam nam sapiente ipsa nesciunt totam exercitationem a molestiae obcaecati modi doloremque sequi debitis alias voluptatum sunt ad voluptatibus quo repellat hic! At praesentium
+                    a provident placeat pariatur maxime veritatis, eveniet libero quia id, qui perspiciatis expedita?</p><br>
+                <p>Temporibus quod consequatur vero! Harum officia hic animi fugiat accusamus ratione consequatur expedita nobis quibusdam, voluptas dicta adipisci voluptatibus consectetur ducimus atque, laborum ipsum magnam architecto quisquam alias deleniti
+                    facere cupiditate! Quaerat suscipit architecto maxime praesentium sit iure! Omnis, dolore provident voluptas dolores quis molestias, nostrum hic sit sunt libero unde ad possimus magnam iure placeat consequatur. Quidem, ea repudiandae
+                    ad labore similique, impedit quo unde quasi modi commodi dolore voluptates voluptate sequi laboriosam eius dolorem, harum velit expedita?</p><br>
+                <p>Libero omnis velit et est impedit voluptates blanditiis, exercitationem ullam itaque quidem id in aliquid laudantium cumque non cupiditate sint consectetur deserunt ipsum dignissimos quibusdam obcaecati. Dolore ipsum reprehenderit saepe
+                    natus at nesciunt.</p><br>
+
+            </div>
+            <button type="button" (click)="showText()" class="btn-read-more">
+                {{ isReadMore ? 'Read More' : 'Read Less' }}
+            </button>
+        </div>
+
+    </div>
+
+    <!-- COURSE REVIEWS -->
+
+    <div class="container-fluid row">
+        <div class="col-md-7 course-review">
+            <h2>Reviews</h2>
+
+            <form class="form-inline md-form form-sm active-purple-2">
+                <input class="form-control form-control-sm mr-3 w-75 search-input" type="text" placeholder="Search reviews" aria-label="Search" mdbInput>
+                <mdb-icon fas icon="search" aria-hidden="true" class="search-icon"></mdb-icon>
+            </form>
+
+            <div class="sample-reviews row">
+                <img src="../../../assets/img/s1.jpg" alt="user-avatar" class="col-md-2">
+
+                <div class="user-review-info col-md-10">
+                    <h3>John Doe</h3>
+
+                    <div class="course-rating">
+                        <ul style="padding-left: 0;">
+                            <li class="yellow-text">4.5</li>
+                            <li class="yellow-text">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </li>
+                            <li>a month ago</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quo similique nesciunt quam atque! Reprehenderit enim nostrum beatae iure debitis.</p>
+                        <p><a href="#">Was this review helpful?</a></p>
+                    </div>
+
+                    <div class="user-review-footer">
+                        <button class="course-button-3"><i class="far fa-thumbs-up"></i></button>
+                        <button class="course-button-3"><i class="far fa-thumbs-down"></i></button>
+                        <label><a href="#">Report</a></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sample-reviews row">
+                <img src="../../../assets/img/s2.jpg" alt="user-avatar" class="col-md-2">
+
+                <div class="user-review-info col-md-10">
+                    <h3>John Doe</h3>
+
+                    <div class="course-rating">
+                        <ul style="padding-left: 0;">
+                            <li class="yellow-text">4.5</li>
+                            <li class="yellow-text">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </li>
+                            <li>a month ago</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quo similique nesciunt quam atque! Reprehenderit enim nostrum beatae iure debitis.</p>
+                        <p><a href="#">Was this review helpful?</a></p>
+                    </div>
+
+                    <div class="user-review-footer">
+                        <button class="course-button-3"><i class="far fa-thumbs-up"></i></button>
+                        <button class="course-button-3"><i class="far fa-thumbs-down"></i></button>
+                        <label><a href="#">Report</a></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sample-reviews row">
+                <img src="../../../assets/img/s3.jpg" alt="user-avatar" class="col-md-2">
+
+                <div class="user-review-info col-md-10">
+                    <h3>John Doe</h3>
+
+                    <div class="course-rating">
+                        <ul style="padding-left: 0;">
+                            <li class="yellow-text">4.5</li>
+                            <li class="yellow-text">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </li>
+                            <li>a month ago</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quo similique nesciunt quam atque! Reprehenderit enim nostrum beatae iure debitis.</p>
+                        <p><a href="#">Was this review helpful?</a></p>
+                    </div>
+
+                    <div class="user-review-footer">
+                        <button class="course-button-3"><i class="far fa-thumbs-up"></i></button>
+                        <button class="course-button-3"><i class="far fa-thumbs-down"></i></button>
+                        <label><a href="#">Report</a></label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,113 @@
+.viewing {
+    padding: 22px 0;
+  }
+  
+  .viewing .viewing__content {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .viewing .viewing__content h2 {
+    font-size: 20px;
+  }
+  
+  @media screen and (max-width: 1350px) {
+    .viewing .viewing__content .card .card-body .card-title {
+      color: #29303b;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  }
+
+  .card {
+    height: 280px;
+    margin-right: 1px;
+    cursor: pointer;
+  }
+  
+  .card .card-body {
+    padding: 1rem;
+  }
+  
+  .card .card-body .card-title {
+    color: #29303b;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .card .card-body .card-text {
+    color: #686f7a;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0px 0;
+  }
+  
+  .card .card-body .card__stars i {
+    color: #F4C150;
+    font-size: 12px;
+    font-weight: 900;
+  }
+  
+  .card .card-body .card__stars .card__rate {
+    color: #686f7a;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .card .card-body .card__stars .card__total {
+    color: #686f7a;
+    font-size: 13px;
+    font-weight: normal;
+  }
+  
+  .card .card-body .card__price {
+    text-align: right;
+    padding: 1px 0;
+  }
+  
+  .card .card-body .card__price span:first-child {
+    color: #686f7a;
+    font-size: 13px;
+    font-weight: normal;
+    /* text-decoration: line-through; */
+  }
+  
+  .card .card-body .card__price span:last-child {
+    color: #29303b;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .card--feedback {
+    height: 280px;
+  }
+  
+  .card--feedback .card-body {
+    padding: 1rem;
+  }
+  
+  .card--feedback .card-body .card__top {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .card--feedback .card-body .card__avatar {
+    margin-right: 15px;
+  }
+  
+  .card--feedback .card-body .card__avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .card--feedback .card-body .card__name {
+    margin-bottom: 0;
+  }
+  
+  .card--feedback .card-body .card-text {
+    color: #29303b;
+    font-size: 15px;
+    font-weight: normal;
+  }

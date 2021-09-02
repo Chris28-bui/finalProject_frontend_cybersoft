@@ -1,0 +1,31 @@
+<section class="viewing">
+    <div class="viewing__content">
+        <h2>Students are viewing</h2>
+        <owl-carousel-o [options]="customOptions">
+            <ng-template *ngFor="let tempCourse of courses" carouselSlide>
+                <div class="card">
+                    <img src="../../../assets/img/kh9.jpg" class="card-img-top" alt="kh9">
+                    <div class="card-body">
+                        <h5 class="card-title">{{tempCourse.courseName}}
+                        </h5>
+                        <p class="card-text">{{tempCourse.courseInstructor.username}}</p>
+                        <div class="card__stars">
+                            <span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half"></i>
+                            </span>
+                            <span class="card__rate">{{tempCourse.rating}}</span>
+                            <span class="card__total">(11.597)</span>
+                        </div>
+                        <div class="card__price">
+                             <span>{{tempCourse.price}}</span> 
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</section>

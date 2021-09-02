@@ -1,0 +1,34 @@
+<div class="container-fluid cartDetails">
+    <h1 class="p-3">Shopping Cart</h1>
+</div>
+<h5 class="container-fluid"><label>{{ totalQuantity }}</label> Course(s) in Cart</h5>
+<div class="container-fluid courses">
+    <div class="row p-3">
+        <div class="col-xl-8">
+            <div *ngFor="let tempCourseItem of cartItem">
+                <div class="row courseBorder mt-5">
+                    <div class="col-xl-3">
+                        <img src="../../../assets/img/kh1.jpg" class="mt-1">
+                    </div>
+                    <div class="col-xl-4">
+                        <p class="courseName">{{ tempCourseItem.courseName }}</p>
+                        <p>By <label>{{ tempCourseItem.courseInstructor.username }}</label></p>
+                    </div>
+                    <div class="col-xl-3">
+                        <button (click)="remove(tempCourseItem)" class="function">Remove</button>
+                        <br/>
+                        <button class="function"> Save for Later</button>
+                        <button class="function">Move to Wishlist</button>
+                    </div>
+                    <div class="col-xl-2">
+                        <p class="courseName price">{{ tempCourseItem.price | currency: 'CAD' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 subtotal mt-5">
+            <p class="ml-5">Subtotal: <strong class="ml-5 totalPrice">{{ totalPrice | currency: 'CAD' }}</strong></p>
+            <button class="btn checkoutButton ml-5" routerLink="/payment">Checkout</button>
+        </div>
+    </div>
+</div>

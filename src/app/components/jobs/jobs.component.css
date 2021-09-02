@@ -1,0 +1,43 @@
+.jobs {
+    background-color: #f7f8fa;
+    margin-top: 8%;
+}
+
+.jobs .jobs__content .row {
+    padding: 10px 0;
+}
+
+.jobs .jobs__content .jobs__items {
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.jobs .jobs__content .jobs__items h2 {
+    color: #505763;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.button--red {
+    color: #fff;
+    background-color: #ec5252;
+    border: 1px solid #ec5252;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 12px;
+    cursor: pointer;
+}
+
+.button--red:hover {
+    color: #fff;
+    background-color: #521822;
+    border: 1px solid #521822;
+}
+
+@media screen and (max-width: 768px) {
+    .jobs .border-right {
+        border-right: none !important;
+    }
+}

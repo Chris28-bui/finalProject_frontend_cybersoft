@@ -1,0 +1,59 @@
+.students {
+    padding: 32px 0;
+  }
+  
+  .students .students__content {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .students .students__content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  
+  
+}
+
+.card--feedback {
+  height: 280px;
+}
+
+.card--feedback .card-body {
+  padding: 2rem;
+}
+
+.card--feedback .card-body .card__top {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.card--feedback .card-body .card__avatar {
+  margin-right: 15px;
+}
+
+.card--feedback .card-body .card__avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.card--feedback .card-body .card__name {
+  margin-bottom: 0;
+}
+
+.card--feedback .card-body .card-text {
+  color: #29303b;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.card {
+  height: 275px;
+  margin-right: 1px;
+}
+
+.card .card-body .card__stars i {
+  color: #F4C150;
+  font-size: 12px;
+  font-weight: 900;
+}

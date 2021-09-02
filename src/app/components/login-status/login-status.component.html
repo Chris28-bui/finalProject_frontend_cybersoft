@@ -1,0 +1,64 @@
+<!-- <div *ngIf="!isAuthenticated">
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            Welcome back {{username}}
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Edit profile</a>
+            <a class="dropdown-item" href="#">Signout</a>
+            <a class="dropdown-item">Add payment</a>
+        </div>
+    </div>
+</div> 
+
+
+<div *ngIf="isAuthenticated">
+    <div class="myNavBar__buttons">
+        <button  class="button button--white" routerLink="/login">Log In</button>
+    <button  class="button button--red" routerLink="/">Sign Up</button>
+    </div>
+</div> -->
+
+<!-- <li>
+    <div *ngIf="isAuthenticated">
+        <div class="dropdown">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Welcome back {{username}} -->
+            <!-- </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit profile</a>
+                <a class="dropdown-item" href="#">Signout</a>
+                <a class="dropdown-item" href="#">Add payment</a>
+            </div>
+        </div>
+    </div>  -->
+
+    <div class="myNavBar__buttons">
+        <div *ngIf="!isAuthenticated">
+            <button  class="button button--white" routerLink="/login">Log In</button>
+            <button  class="button button--red" routerLink="/">Sign Up</button> 
+        </div>
+        <div *ngIf="isAuthenticated">
+            <a href="#" class="student__name">{{username}}</a>
+            <button class="btn button--red ml-2" (click)="logout()">Sign out</button>
+        </div>
+    </div>
+    
+    <!-- <div *ngIf="!isAuthenticated">
+        <div class="myNavBar__buttons">
+            <button  class="button button--white" routerLink="/login">Log In</button>
+        <button  class="button button--red" routerLink="/">Sign Up</button>
+        </div>
+    </div> 
+</li>  -->
+
+
+
+<!-- <li class="nav-item">
+    <div class="myNavBar__buttons" *ngIf="isAuthenticated">
+        <button class="button button--white" routerLink="/login">Log In</button>
+        <button class="button button--red" routerLink="/">Sign Up</button> 
+    </div>
+
+    
+</li> -->

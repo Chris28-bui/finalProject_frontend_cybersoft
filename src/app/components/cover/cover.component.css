@@ -1,0 +1,86 @@
+#COVER
+
+.cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .cover {
+    background-image: url("../../../assets/img/cover.jpg");
+    height: 500px;
+    position: relative;
+  }
+  .cover .cover__content {
+  max-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  transform: translateY(-50%);
+}
+
+.cover .cover__content h1 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.cover .cover__content p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.cover .cover__content .cover__form .input-group {
+  background-color: #fff;
+}
+
+.cover .cover__content .cover__form .input-group .form-control {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transition: none;
+  color: #505763;
+}
+
+.cover .cover__content .cover__form .input-group .form-control::placeholder {
+  color: #505763;
+}
+
+.cover .cover__content .cover__form .input-group .form-control:focus {
+  background-color: #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.cover .cover__content .cover__form .input-group .form-control:focus + .input-group-append .input-group-text {
+  background-color: #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+  color: #ec5252;
+}
+
+.cover .cover__content .cover__form .input-group .form-control:focus + .input-group-append .input-group-text:hover {
+  color: #fff;
+  background-color: #ec5252;
+}
+
+.cover .cover__content .cover__form .input-group .input-group-append .input-group-text {
+  background-color: transparent;
+  border-color: transparent;
+  color: #ec5252;
+}
+
+.cover .cover__content .cover__form .input-group .input-group-append .input-group-text:hover {
+  color: #fff;
+  background-color: #ec5252;
+}
+
+@media screen and (max-width: 576px) {
+  .cover .cover__content {
+    max-width: 400px;
+    left: 10%;
+  }
+}
+
